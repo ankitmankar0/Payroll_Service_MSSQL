@@ -7,4 +7,14 @@ exec sp_databases;   --Show all existing databases in short
 select * 
 from sys.databases;   --Show all the existing databases in detailed
 
+
 Drop database payroll_services;
+
+---UC2 : Ability create a employee payroll table in the payroll service database
+CREATE TABLE employee_payroll 
+(
+   id int identity primary key,
+   name varchar(Max) Not null,
+   salary money default 1000,
+   startDate DateTime default GetDate()
+);
