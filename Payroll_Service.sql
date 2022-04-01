@@ -20,4 +20,8 @@ CREATE TABLE employee_payroll
 );
 
 --UC3 : Ability to create employee payroll data service database
+INSERT INTO employee_payroll (name,salary,startDate) VALUES
+('Bill', 100000.00, '2018-01-03'),
+('Terisa', 200000.00, '2019-11-13'),
+('Charlie', 300000.00, '2020-05-21');
 Insert into employee_payroll (name,salary,startDate) values('Ankit',5545,GETDATE()),('Rohan',54545,GETDATE())
