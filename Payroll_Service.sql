@@ -25,3 +25,12 @@ INSERT INTO employee_payroll (name,salary,startDate) VALUES
 ('Terisa', 200000.00, '2019-11-13'),
 ('Charlie', 300000.00, '2020-05-21');
 Insert into employee_payroll (name,salary,startDate) values('Ankit',5545,GETDATE()),('Rohan',54545,GETDATE())
+
+--Delete
+--from employee_payroll
+--Where id=3               # It is used to delete a particular row by using id or name etc..
+
+
+--UC4 : Ability to retrieve all the employee payroll data 
+select * 
+from employee_payroll;
