@@ -7,4 +7,5 @@ exec sp_databases;   --Show all existing databases in short
 select * 
 from sys.databases;   --Show all the existing databases in detailed
 
+
 Drop database payroll_services;
