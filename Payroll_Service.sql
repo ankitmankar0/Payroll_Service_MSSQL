@@ -66,3 +66,52 @@ UPDATE employee_payroll set Gender = 'M' where name = 'Bill' or name = 'Charlie'
 UPDATE employee_payroll set salary = 300000.00 where name = 'Terisa'
 UPDATE employee_payroll set salary = 500000.00 where name = 'Arjun'
 UPDATE employee_payroll set salary = 400000.00 where name = 'Madan'   --updating salary of employees
+
+--UC7 : Ability to find sum, average, min, max
+--and number of male and female employees
+--UC7.1:- Ability to find SUM(salary) from the number of male and female employees.
+SELECT SUM(salary) FROM employee_payroll       -- The SUM() function returns the total sum of a numeric column. 
+WHERE Gender = 'M' 
+GROUP BY Gender;   --The GROUP BY statement groups rows that have the same values into summary rows.
+
+SELECT SUM(salary) FROM employee_payroll          --The SUM() function returns the total sum of a numeric column. 
+WHERE Gender = 'F' 
+GROUP BY Gender;   --The GROUP BY statement groups rows that have the same values into summary rows.
+
+Select Gender, SUM(salary) From employee_payroll GROUP BY Gender;  -- Group the sum of employee's salaries on the basis of gender
+
+--UC7.2:- Ability to find AVG(salary) from the number of male and female employees.
+Select Gender, AVG(salary) From employee_payroll GROUP BY Gender;  -- Group the avg of employee's salaries on the basis of gender
+--AVG() function returns the average value of a numeric column.
+
+--UC7.3:- Ability to find MIN(salary) from the number of male and female employees.
+Select Gender, MIN(salary) From employee_payroll GROUP BY Gender;  -- Group the min(salary) from employees on the basis of gender
+--The MIN() function returns the smallest value of the selected column.
+
+--UC7.4:- Ability to find MAX(salary) from the number of male and female employees.
+Select Gender, MAX(salary) From employee_payroll GROUP BY Gender;  -- Group the max(salary) from employees  on the basis of gender
+--The MAX() function returns the largest value of the selected column.
+
+--UC7.5:- Ability to COUNT number of male and female employees.
+Select Gender, COUNT(name) From employee_payroll GROUP BY Gender;  -- Group the max(salary) from employees  on the basis of gender
+ --The COUNT() function returns the number of rows that matches a specified criterion.
+
+ -- UC8:- Ability to extend employee_payroll data to store employee information like employee phone, address and department.
+-- Ensure employee department is non nullable fields.
+-- Add Default Value for address field.
+-- UC8.1:- Ability to extend employee_payroll data to store employee information like employee phone.
+
+alter table employee_payroll add phone_number bigint;                  --Alter the table by adding new column
+alter table employee_payroll ALTER COLUMN phone_number VARCHAR(250);   --Alter any column of the table
+select *  from employee_payroll
+
+-- UC8.2:- Ability to extend employee_payroll data to store employee information like address.
+-- Add Default Value for address field.
+alter table employee_payroll add address varchar(250) NOT NULL default'Nagpur';  --Adding address field with default value
+select *  from employee_payroll
+
+-- UC8.3:- Ability to extend employee_payroll data to store employee information like department.
+-- Ensure employee department is non nullable fields.
+alter table employee_payroll add department varchar(150) NOT NULL default 'CSE';
+select *  from employee_payroll
+
