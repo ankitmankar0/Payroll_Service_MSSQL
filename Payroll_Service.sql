@@ -18,3 +18,6 @@ CREATE TABLE employee_payroll
    salary money default 1000,
    startDate DateTime default GetDate()
 );
+
+--UC3 : Ability to create employee payroll data service database
+Insert into employee_payroll (name,salary,startDate) values('Ankit',5545,GETDATE()),('Rohan',54545,GETDATE())
